@@ -1,6 +1,6 @@
 #define GLM_FORCE_SWIZZLE
 #define GLM_FORCE_INLINE
-#include "glm/glm.hpp"
+#include "glm/glm/glm.hpp"
 using namespace glm;
 
 #define xy   xy  ()
@@ -10,9 +10,10 @@ using namespace glm;
 #define yw   yw  ()
 #define zx   zx  ()
 #define zw   zw  ()
+#define xxx  xxx ()
 #define xyx  xyx ()
 #define xyz  xyz ()
-#define rgb  xyz ()
+#define rgb  rgb ()
 #define xzy  xzy ()
 #define yyy  yyy ()
 #define yzx  yzx ()
