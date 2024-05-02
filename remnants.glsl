@@ -2,7 +2,7 @@
 #define MAX_STEPS 42.0
 #define EPSILON 1.0 / 42.0
 
-inline vec2 rotate(vec2 v, float r) {
+vec2 rotate(vec2 v, float r) {
 /*
 	float c = cos(r), s = sin(r);
 	mat2 rot = mat2(c, -s, s, c);
@@ -14,7 +14,7 @@ inline vec2 rotate(vec2 v, float r) {
 //*/
 }
 
-inline void mainImage(OUT(vec4, fragColor), vec2 fragCoord) {
+void mainImage(OUT(vec4, fragColor), vec2 fragCoord) {
 	float time = mod(iTime / 16.0, 6.0);
 	int shot = int(time); // current camera shot
 

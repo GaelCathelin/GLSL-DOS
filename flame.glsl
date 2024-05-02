@@ -2,33 +2,33 @@
 // Created by anatole duprat - XT95/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
-inline float noise(vec3 p) //Thx to Las^Mercury
+float noise(vec3 p) //Thx to Las^Mercury
 {
 	vec3 i = floor(p);
 	vec4 a = dot(i, vec3(1., 57., 21.)) + vec4(0., 57., 21., 78.);
-	vec3 f = cos((p-i)*acos(-1.))*(-.5)+.5;
+	vec3 f = cos((p-i)*3.1415927)*(-.5)+.5;
 	a = mix(sin(cos(a)*a),sin(cos(1.+a)*(1.+a)), f.x);
 	a = vec4(mix(a.xz, a.yw, f.y), a.zw);
 	return mix(a.x, a.y, f.z);
 }
 
-inline float  sphere(vec3 p, vec4 spr)
+float  sphere(vec3 p, vec4 spr)
 {
 	return length(spr.xyz-p) - spr.w;
 }
 
-inline float flame(vec3 p)
+float flame(vec3 p)
 {
 	float d = sphere(p*vec3(1.,.5,1.), vec4(.0,-1.,.0,1.));
 	return d + (noise(p+vec3(.0,iTime*2.,.0)) + noise(p*3.)*.5)*.25*(p.y) ;
 }
 
-inline float scene(vec3 p)
+float scene(vec3 p)
 {
 	return min(100.-length(p) , abs(flame(p)) );
 }
 
-inline vec4 raymarch(vec3 org, vec3 dir)
+vec4 raymarch(vec3 org, vec3 dir)
 {
 	float d = 0.0, glow = 0.0, eps = 0.02;
 	vec3  p = org;
@@ -49,7 +49,7 @@ inline vec4 raymarch(vec3 org, vec3 dir)
 	return vec4(p,glow);
 }
 
-inline void mainImage( OUT(vec4, fragColor), in vec2 fragCoord )
+void mainImage( OUT(vec4, fragColor), in vec2 fragCoord )
 {
 	vec2 v = -1.0 + 2.0 * fragCoord.xy / iResolution.xy;
 	v.x *= iResolution.x/iResolution.y;
