@@ -95,7 +95,7 @@ extern "C" void __attribute__((naked, section(".text.startup"))) startup() {
 	begin();
 
 	const ushort t0 = timer();
-	for (ushort pixel = 0; !finished(); pixel += 40503) {
+	for (ushort pixel = 0; !finished(); pixel += 37587) {
 		iTime = (timer() - t0) / 18.2;
 		const ushort x = pixel % 320;
 		const uchar y = pixel / 320;
