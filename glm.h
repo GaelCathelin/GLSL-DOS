@@ -22,6 +22,7 @@ using namespace glm;
 // TODO: add the remaining ones...
 
 float iTime;
+int iFrame;
 #define iMouse vec4()
 #define iResolution vec3(320.0, 200.0, 1.0)
 #define in
